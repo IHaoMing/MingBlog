@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+ {% block main %}
+	<h1 class="post-title">{{ post.title }}</h1>
+	<div class="post-author">
+		<a href="#" class="avatar pull-left"><img src="#" alt=""></a>
+		<div class="post-author-info">
+			<p><span class="tag">{{ post.category }}</span> <a class="author-name" href="https://lixianhua.com/author/1/">{{ post.author }}</a></p>
+			<p class="post-meta">
+				<span datetime="{{ post.created_time }}" title="2017-08-24 18:33:00">{{ post.created_time }}</span>
+				<span>阅读 {{ post.views }}</span>
+				<span>评论 {{ post.comment_set.count }}</span>
+				<span>喜欢 0</span>
+			</p>
+		</div>
+	</div>
+	<div class="post-content markdown">
+		{{ post.body|safe }}
+	</div>
+	<div class="post-foot">
+		<span class="post-tags"><i class="icon icon-tag"></i> <a href="https://lixianhua.com/category/doc/">文档</a> <a href="https://lixianhua.com/tag/TeMenu/">TeMenu</a> <a href="https://lixianhua.com/tag/%E8%8F%9C%E5%8D%95/">菜单</a></span>
+		<span class="pull-right" title="转载请注明出处">© 著作权归作者所有</span>
+	</div>
+	<div class="post-tool">
+		<div class="social">
+			<div class="social-inner">
+				<a class="social-left btn-like" href="https://lixianhua.com/temenu_document.html#" data-cid="55"><i class="icon icon-like"></i> 点赞 <span class="likes-num">0</span></a>
+				<div class="social-round">
+					<div class="social-round-border"><span></span></div>
+					<a class="social-round-inner" href="https://lixianhua.com/temenu_document.html#">赏												<div class="donate">
+							<h4><i class="icon icon-donate"></i> 如果认为本文对您有所帮助请赞助本站</h4>
+							<div class="donate-item">
+																<div><img src="./detail_files/alipay.png" alt="alipay"><h5>支付宝扫一扫赞助</h5></div>
+																							</div>
+						</div>
+											</a>
+				</div>
+				<div class="social-right share" href="#"><i class="icon icon-share"></i> 分享					<div class="share-list">
+						<div class="bdsharebuttonbox">
+							<a href="https://lixianhua.com/temenu_document.html#" class="bds_more" data-cmd="more"></a>
+							<a href="https://lixianhua.com/temenu_document.html#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+							<a href="https://lixianhua.com/temenu_document.html#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+							<a href="https://lixianhua.com/temenu_document.html#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+							<a href="https://lixianhua.com/temenu_document.html#" class="bds_mail" data-cmd="mail" title="分享到邮件分享"></a>
+							<a href="https://lixianhua.com/temenu_document.html#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</article>
+<div id="comments">
+	 <section class="comment-area" id="comment-area">
+                    <hr>
+                    <h3>发表评论</h3>
+                    <form action="{% url 'comments:post_comment' post.pk %}" method="post" class="comment-form">
+                      {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-4">
+                          <label for="{{ form.name.id_for_label }}">名字：</label>
+                          {{ form.name }}
+                          {{ form.name.errors }}
+                        </div>
+                        <div class="col-md-4">
+                          <label for="{{ form.email.id_for_label }}">邮箱：</label>
+                          {{ form.email }}
+                          {{ form.email.errors }}
+                        </div>
+                        <div class="col-md-4">
+                          <label for="{{ form.url.id_for_label }}">URL：</label>
+                          {{ form.url }}
+                          {{ form.url.errors }}
+                        </div>
+                        <div class="col-md-12">
+                          <label for="{{ form.text.id_for_label }}">评论：</label>
+                          {{ form.text }}
+                          {{ form.text.errors }}
+                          <button type="submit" class="comment-btn">发表</button>
+                        </div>
+                      </div>    <!-- row -->
+                    </form>
+                    <div class="comment-list-panel">
+                        <h3>评论列表，共 <span>4</span> 条评论</h3>
+                        <ul class="comment-list list-unstyled">
+                          {% for comment in comment_list %}
+                          <li class="comment-item">
+                            <span class="nickname">{{ comment.name }}</span>
+                            <time class="submit-date">{{ comment.created_time }}</time>
+                            <div class="text">
+                              {{ comment.text }}
+                            </div>
+                          </li>
+                          {% empty %}
+                          暂无评论
+                          {% endfor %}
+                        </ul>
+                    </div>
+       </section>
+ </div>
+{% endblock main %}
+

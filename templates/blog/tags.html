@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load blog_tags %}
+ {% block main %}
+ <article class="post page">
+	<h1 class="post-title">归档</h1>
+	<div class="post-content markdown">
+     {% archives as date_list %}
+		<div class="archives">
+            <div class="archive-month">
+            {% for date in date_list %}   
+            <h2>{{ date.year }} 年 {{ date.month }} 月</h2>
+            
+                {% for post in post_list %}
+                <ul class="archive-list">
+                    {%ifequal date.year post.created_time.year %}
+                    {% ifequal date.month post.created_time.month %}
+                <li>{{ post.created_time.day }}日 <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                    {% endifequal %}  
+                    {% endifequal %} </li>
+                </ul>
+              {% endfor %}
+            </div>
+              
+          
+    {% endfor %}
+    </article>
+{% endblock main %}

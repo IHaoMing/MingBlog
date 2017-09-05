@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://lixianhua.com/temenu_document.html -->
+<html class="no-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>文章详情</title>
+
+    <link href="{% static 'blog/img/favicon.ico' %}" rel="icon">
+    <link rel="stylesheet" href="{% static 'blog/css/icon.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/markdown.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/font_m7mp27xfc0jp2e29.css' %}">
+        <!--[if lt IE 9]>
+    <script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <meta name="description" content="文章存档">
+
+	<style type="text/css">
+			/* Code tidied up by ScrapBook */
+			#te-cmt-tool { display: none; list-style: outside none none; padding: 0px; margin: 10px 0px; }
+			#te-cmt-cmd { padding: 0px; margin: 0px; overflow: hidden; list-style: outside none none; border: 1px solid rgb(150, 150, 150); border-radius: 3px; }
+			#te-cmt-cmd li { padding: 0px; margin: 0px; float: left; border: medium none; }
+			#te-cmt-cmd li a { height: 32px; line-height: 32px; padding: 0px 10px; display: block; }
+			.te-cmt-smilies { display: none; padding: 8px 5px 5px; margin-top: -3px; border-width: medium 1px 1px; border-style: none solid solid; border-color: currentcolor rgb(150, 150, 150) rgb(150, 150, 150); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; border-radius: 0px 0px 3px 3px; }
+			.te-cmt-smilies span { cursor: pointer; }
+			.te-cmt-smilies span img { vertical-align: middle; }
+			.te-cmt-ban { height: 20px; line-height: 20px; }
+			.te-cmt-ban input[type="checkbox"] { margin: 0px; padding: 0px; vertical-align: middle; }
+    </style>
+	<script src="{% static 'blog/js/hm.js' %}"></script>
+	<script src="{% static 'blog/js/share.js' %}"></script>
+<body>
+<div id="wrapper" class="single">
+    <header id="header" style="top: 0px;">
+		<a class="site-name" href="#" title="芒果浩明的个人博客">明</a>
+        <nav class="nav">
+             <a href="{% url 'blog:index' %}" title="首页"><i class="icon icon-home"></i> <span>首页</span></a>
+            <a href="{% url 'blog:archives' %}" title="归档"><i class="icon icon-archive"></i> <span>归档</span></a>
+            <a href="#" title="标签"><i class="icon icon-tag"></i> <span>标签</span></a>
+            <a href="#" title="链接"><i class="icon icon-cat"></i> <span>分类</span></a>
+            <a href="#" title="留言"><i class="icon icon-comment"></i> <span>留言</span></a>
+            <a href="{% url 'blog:about' %}" title="关于"><i class="icon icon-info"></i> <span>关于</span></a>          
+        </nav>
+    </header>
+    
+    <div id="body">
+        <div class="body-header" style="top: 0px;">
+			<a href="https://lixianhua.com/temenu_document.html#" class="btn btn-default btn-nav-size pull-left hidden-xs"><i class="icon icon-outdent"></i></a>
+			<a href="https://lixianhua.com/temenu_document.html#" class="btn btn-default btn-screen-size pull-left hidden-xs"><i class="icon icon-compress"></i></a>
+			<div class="site-search pull-left">
+                <form id="search" class="form" method="post" action="https://lixianhua.com/" role="search">
+                    <label for="s" class="sr-only">搜索关键字</label>
+                    <input type="text" name="s" class="form-control" placeholder="搜索">
+                    <button type="submit" class="btn btn-default" title="搜索"><i class="icon icon-search"></i></button>
+                </form>
+            </div>
+							<a href="https://lixianhua.com/admin/login.php" class="btn btn-default pull-right" title="登录"><i class="icon icon-login"></i></a>
+			            <a href="https://lixianhua.com/temenu_document.html#" class="btn btn-default btn-mode pull-right"><i class="icon icon-moon"></i></a>
+        </div>
+        <div id="main">
+			 {% block main %}
+    		 {% endblock main %}
+		</div>
+	</div><!-- end #main-->
+		
+<footer class="footer">
+	<div class="footer-inner">
+				<p><a href="{% url 'blog:archives' %}"><i class=""></i> 归档 </a>
+				   <a href="#"><i class=""></i> 标签 </a>
+				   <a href="#"><i class=""></i> 链接 </a>
+				   <a href="#"><i class=""></i> 留言 </a>
+				   <a href="{% url 'blog:about' %}"><i class=""></i> 关于 </a>
+				 </p>
+				<p>© 2017 <a href="#">芒果浩明</a>
+					<em>·</em> <a href="http://www.typecho.org/" target="_blank">Typecho</a>
+					 <span class="hidden-xs"><em>·</em> <a href="http://www.miitbeian.gov.cn/" target="blank">备案号</a></span>					<em>·</em> Theme By <a href="http://whaoming.site" target="_blank">绛木子由芒果浩明修改</a>
+			    </p>
+			</div>
+</footer><!-- end #footer -->
+    </div>
+	<div class="site-tool">
+		<a href="https://lixianhua.com/temenu_document.html#" class="icon icon-top btn-gotop" style="display: none;"></a>
+	</div>
+</div><!-- end #wrapper -->
+<script src="{% static 'blog/js/hm.js' %}"></script>
+<script src="{% static 'blog/js/jquery.min.js' %}"></script>
+<script src="{% static 'blog/js/jquery.plugins.js' %}"></script>
+<script src="{% static 'blog/js/app.js' %}"></script>
+<script src="{% static 'blog/js/collect.js' %}"></script>
+<script>!window.jQuery && document.write("<script src=\"https://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js\">"+"</scr"+"ipt>");</script>
+<script src="{% static 'blog/js/tecomment.js' %}"></script>
+<div id="pjax-loading" style="width: 0px; display: none;"></div>
+
+</body>
+</html>
